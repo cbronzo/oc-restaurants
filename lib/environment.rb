@@ -2,9 +2,11 @@
 
 require 'nokogiri'
 require 'open-uri'
+# require 'pry'
 
-require_relative "./oc_restaurants/version"
-require_relative "./oc_restaurants/cli"
+require_relative "./oc_restaurants/version.rb"
+require_relative "./oc_restaurants/cli.rb"
+require_relative "./oc_restaurants/scraper.rb"
 
 module OcRestaurants
   # Your code goes here...
