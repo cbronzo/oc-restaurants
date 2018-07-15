@@ -42,6 +42,7 @@ class Scraper
 end
 
 
+# Variable Scraping:
 
 # Title: doc.css('.c-mapstack__card-hed h1').first.text.strip
 
