@@ -10,7 +10,7 @@ class Scraper
 
 
     doc.css('.map_stack').each.with_index do |restaurant, index|
-      title = restaurant.css('.c-mapstack__card-hed h1')[index].text.strip.gsub(/\d+. /,"")
+      name = restaurant.css('.c-mapstack__card-hed h1')[index].text.strip.gsub(/\d+. /,"")
       number_index = restaurant.css('.c-mapstack__card-index')[index].text
       phone = restaurant.css('.c-mapstack__phone-url a')[index].text
       address = restaurant.css('.c-mapstack__address')[index].text

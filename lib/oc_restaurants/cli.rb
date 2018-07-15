@@ -10,6 +10,7 @@ class OCRestaurants::CLI
 
   def start
     list_restaurants
+    main_menu
     Scraper.scrape_restaurants
     #display the list of restaurants to the user
   end
@@ -18,6 +19,10 @@ class OCRestaurants::CLI
 
     puts "Welcome to OC's best Restaurants!"
     puts "Please select a restaurant to learn more!"
+  end
+
+  def main_menu
+    input = gets.strip
   end
 
 end
