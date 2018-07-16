@@ -1,12 +1,13 @@
 class OCRestaurants::Best_Restaurant
 
-  attr_accessor :name :phone :address :description :website
+  attr_accessor :hash :name :phone :address :description :website
 
   @@all = []
 
   def initialize(hash)
     hash.each do |key, value|
       self.send("#{key}=", value)
+    end
     end
 
   end
@@ -28,7 +29,7 @@ class OCRestaurants::Best_Restaurant
   def self.create_from_collection(array)
     array.each do |hash|
       self.create(hash)
-    end
+
   end
 
 
