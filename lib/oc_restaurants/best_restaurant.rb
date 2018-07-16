@@ -1,24 +1,23 @@
-class OCRestaurants::Best_Restaurant
+class Best_Restaurant
 
-  attr_accessor :hash :name :phone :address :description :website
+attr_accessor :phone, :name, :address, :description, :website
 
   @@all = []
 
-  def initialize(hash)
-    hash.each do |key, value|
-      self.send("#{key}=", value)
-    end
-    end
 
+  def initialize(hash)
+    hash.each {|key, value| self.send(("#{key}="), value)}
   end
 
   def self.all
-      @@all
+    @@all
   end
 
+
   def save
-      @@all << self
+    @@all << self
   end
+
 
   def self.create(hash)
     restaurant = self.new(hash)
@@ -29,10 +28,8 @@ class OCRestaurants::Best_Restaurant
   def self.create_from_collection(array)
     array.each do |hash|
       self.create(hash)
-
+    end
   end
-
-
 
 
 end
