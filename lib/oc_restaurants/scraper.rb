@@ -11,16 +11,15 @@ class Scraper
             oc_hash[:description] = restaurant.css('.c-entry-content p').text
             oc_hash[:phone] = restaurant.css('.desktop-only').text
             oc_hash[:address] = restaurant.css('.c-mapstack__address').text
-              website_link = restaurant.css('.c-mapstack__phone-url > a').attr("href")
-              if website_link
-                oc_hash[:website] = website_link.value
+              website_link = restaurant.css('.c-mapstack__phone-url > a')
+              if !website_link.empty?
+                oc_hash[:website] = website_link.attr("href").value
               else
                 oc_hash[:website] = ""
               end
             array << oc_hash
           end
-    end
-      # binding.pry
-    Best_Restaurant.create_from_collection(array)
+        end
+      Best_Restaurant.create_from_collection(array)
   end
 end
