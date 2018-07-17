@@ -5,7 +5,7 @@ require "oc_restaurants/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "oc_restaurants"
-  spec.version       = OcRestaurants::VERSION
+  spec.version       = OCRestaurants::VERSION
   spec.authors       = ["Catherine"]
   spec.email         = ["cbronzo@mac.com"]
 

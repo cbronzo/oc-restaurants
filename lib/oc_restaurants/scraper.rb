@@ -3,36 +3,24 @@ class Scraper
   def scrape_restaurants
     doc = Nokogiri::HTML(open("https://la.eater.com/maps/orange-county-restaurants-santa-ana-irvine-dana-point-newport-beach-costa-mesa"))
     array = []
-
-    doc.css('.map_stack').each do |restaurant|
-      restaurant_hash = {}
-      restaurant_hash[:name] = restaurant.css('.c-mapstack__card-hed h1').text.strip.gsub(/\d+. /,"")
-      restaurant_hash[:phone] = restaurant.css('.c-mapstack__phone-url a').text
-      restaurant_hash[:address] = restaurant.css('.c-mapstack__address').text
-      restaurant_hash[:description] = restaurant.css('.c-entry-content p')[1..21].text
-      restaurant_hash[:website] = restaurant.css('.c-mapstack__phone-url a')[1..21].attr("href").text
-      array << restaurant_hash
+      doc.css('section.c-mapstack__card').each do |restaurant|
+        header = restaurant.css('.c-mapstack__card-hed')
+          if header.size != 0
+            oc_hash = {}
+            oc_hash[:name] = header.css('h1').text.strip.gsub(/\d+. /,"")
+            oc_hash[:description] = restaurant.css('.c-entry-content p').text
+            oc_hash[:phone] = restaurant.css('.desktop-only').text
+            oc_hash[:address] = restaurant.css('.c-mapstack__address').text
+              website_link = restaurant.css('.c-mapstack__phone-url > a').attr("href")
+              if website_link
+                oc_hash[:website] = website_link.value
+              else
+                oc_hash[:website] = ""
+              end
+            array << oc_hash
+          end
     end
+      # binding.pry
     Best_Restaurant.create_from_collection(array)
   end
-
-
 end
-
-
-
-
-# Variable Scraping:
-
-# Title: doc.css('.c-mapstack__card-hed h1').first.text.strip
-
-# Address: doc.css('.c-mapstack__address').first.text
-
-# Phone doc.css('.c-mapstack__phone-url a').text
-
-# Description doc.css('.c-entry-content p')[1..21].first.text
-
-# Website: doc.css('.c-mapstack__phone-url a')[1..21].attr("href").text
-
-# Number_index: doc.css('.c-mapstack__card-index').first.text
-#number_index = restaurant.css('.c-mapstack__card-index')[index].text

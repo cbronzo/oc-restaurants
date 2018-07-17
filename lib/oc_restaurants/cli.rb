@@ -17,8 +17,9 @@ class CLI
 
   def list_restaurants
     puts "Please select a restaurant to learn more!"
-    Best_Restaurant.all.each.with_index(1) do|restaurant, index|
-      puts "#{index}. #{restaurant.name}"
+    Best_Restaurant.all.each.with_index(1) do |restaurant, index|
+
+      puts "#{index}. #{restaurant.website}"
     end
   end
 
