@@ -20,6 +20,7 @@ class Scraper
             array << oc_hash
           end
         end
+        # binding.pry
       Best_Restaurant.create_from_collection(array)
   end
 end

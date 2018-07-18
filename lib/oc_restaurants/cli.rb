@@ -32,6 +32,7 @@ class CLI
 
   def list_restaurant_name
     puts "YUM! Here are 21 of the OC's best & hottest restaurants!"
+    # binding.pry
     Best_Restaurant.all.each.with_index(1) do |restaurant, index|
       puts "#{index}. #{restaurant.name}"
     end
@@ -39,8 +40,9 @@ class CLI
     puts "To exit, type 'exit'."
     input = gets.strip
       if input.to_i.between?(1,21)
+
         index = input.to_i - 1
-        restaurant_attributes
+        restaurant_attributes(index)
       elsif input == "exit"
         puts "You are now exiting the program. Thank you, goodbye!"
         exit
@@ -52,42 +54,41 @@ class CLI
   end
 
 
-  def restaurant_attributes
-    puts "This is working."
-    # Best_Restaurant.all
-    # puts "Below, you will find the details for #{restaurant.name}."
-    #
-    #
-    #   puts "Description: #{restaurant.description}"
-    #     if restaurant.address == ""
-    #       puts "Sorry, no address information available."
-    #     else
-    #       puts "Address: #{restaurant.address}"
-    #     end
-    #
-    #     if restaurant.phone == ""
-    #       puts "Sorry, no phone number available."
-    #     else
-    #       puts "Phone Number: #{restaurant.phone}"
-    #     end
-    #
-    #     if restaurant.website == ""
-    #       puts "Sorry, no website available."
-    #     else
-    #       puts "Website: #{restaurant.website}"
-    #     end
-    #
-    #   puts "To go back to the guide, type 'back'."
-    #   puts "To exit, type 'exit'."
-    #   input = gets.strip
-    #     if input == "back"
-    #       list_restaurant_name
-    #     elsif input == "exit"
-    #       exit
-    #     else
-    #       error
-    #     end
-  end
+  def restaurant_attributes(index)
+    restaurant_info = Best_Restaurant.all[index]
+    puts "Below, you will find the details for #{restaurant_info.name}."
+    puts "Description: #{restaurant_info.description}"
+
+        if restaurant_info.address == ""
+          puts "Address: Sorry, no address available."
+        else
+          puts "Address: #{restaurant_info.address}"
+        end
+
+        if restaurant_info.phone == ""
+          puts "Phone: Sorry, no phone number available."
+        else
+          puts "Phone Number: #{restaurant_info.phone}"
+        end
+
+        if restaurant_info.website == ""
+          puts "Website: Sorry, no website available."
+        else
+          puts "Website: #{restaurant_info.website}"
+        end
+
+      puts "To go back to the guide, type 'back'."
+      puts "To exit, type 'exit'."
+      input = gets.strip
+        if input == "back"
+          list_restaurant_name
+        elsif input == "exit"
+          exit
+        else
+          error
+          restaurant_attributes(index)
+        end
+    end
 
 
   def error
