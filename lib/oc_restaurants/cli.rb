@@ -8,7 +8,7 @@ class CLI
   end
 
   def start
-    puts "Welcome to 'Orange County's 21 Hottest Restaurants' Guide!"
+    puts "Welcome to 'Orange County's 21 Hottest Restaurants' Guide! "
     Scraper.new.scrape_restaurants
     menu
   end
@@ -31,13 +31,12 @@ class CLI
 
 
   def list_restaurant_name
-    puts "YUM! Here are 21 of the OC's best & hottest restaurants!"
-    # binding.pry
+    puts "YUM! Here are 21 of the OC's best & hottest restaurants! Dig in!"
+    puts "Please select a restaurant by entering its number (1-21) to learn more!"
+    puts "To exit, type 'exit'."
     Best_Restaurant.all.each.with_index(1) do |restaurant, index|
       puts "#{index}. #{restaurant.name}"
     end
-    puts "Please select a restaurant by entering its number (1-21) to learn more!"
-    puts "To exit, type 'exit'."
     input = gets.strip
       if input.to_i.between?(1,21)
 
@@ -50,7 +49,6 @@ class CLI
         error
         list_restaurant_name
       end
-
   end
 
 
@@ -77,11 +75,14 @@ class CLI
           puts "Website: #{restaurant_info.website}"
         end
 
-      puts "To go back to the guide, type 'back'."
+      puts "To select another restaurant, please enter its number, or enter 'back' to go back to the guide."
       puts "To exit, type 'exit'."
       input = gets.strip
         if input == "back"
           list_restaurant_name
+        elsif input.to_i.between?(1,21)
+          index = input.to_i - 1
+          restaurant_attributes(index)
         elsif input == "exit"
           exit
         else
