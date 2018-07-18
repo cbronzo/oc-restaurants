@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Catherine"]
   spec.email         = ["cbronzo@mac.com"]
 
-  spec.summary       = "A short summary"
-  spec.description   = "A short description"
+  spec.summary       = "Shows Orange County's Hottest Restaurants of Spring 2018 with restaurant's info."
+  spec.description   = "User can view a list of Orange County's Hottest Restaurants, and then choose a restaurant to see more details."
   spec.homepage      = "TODO: Put your gem's website or public repo URL here."
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
