@@ -1,8 +1,6 @@
 # OcRestaurants
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/oc_restaurants`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Welcome to the Orange County Restaurants Gem! Upon running this gem, you will be given an interactive prompt asking you to input 'guide' to see a list of top OC restaurants. You will be then be able to select a restaurant by number to view more details, such as: name, description, address, phone number and website. Enjoy!
 
 ## Installation
 
@@ -22,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+To run this gem, type in 'ruby  bin/restaurants' in your terminal. A prompt will come up and will guide you through the application.
 
 ## Development
 
@@ -32,4 +30,4 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/oc_restaurants.
+Bug reports and pull requests are welcome on GitHub at https://github.com/[cbronzo]/oc_restaurants.

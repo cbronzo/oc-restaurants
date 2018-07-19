@@ -9,9 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Catherine"]
   spec.email         = ["cbronzo@mac.com"]
 
-  spec.summary       = "Shows Orange County's Hottest Restaurants of Spring 2018 with restaurant's info."
-  spec.description   = "User can view a list of Orange County's Hottest Restaurants, and then choose a restaurant to see more details."
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = "CLI shows Orange County's Hottest Restaurants of Spring 2018 with restaurant details."
+  spec.homepage      = "https://github.com/cbronzo/oc-restaurants-cli-app"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
@@ -27,7 +26,7 @@ Gem::Specification.new do |spec|
   spec.files         = Dir.chdir(File.expand_path('..', __FILE__)) do
     `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   end
-  spec.bindir        = "exe"
+  spec.bindir        = "bin"
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
