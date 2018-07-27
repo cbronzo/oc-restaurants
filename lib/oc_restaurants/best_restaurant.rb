@@ -1,4 +1,4 @@
-class Best_Restaurant
+class OCRestaurants::Best_Restaurant
 
 attr_accessor :phone, :name, :address, :description, :website
 
@@ -19,6 +19,7 @@ attr_accessor :phone, :name, :address, :description, :website
   end
 
 
+
   def self.create(hash)
     restaurant = self.new(hash)
     restaurant.save
@@ -30,6 +31,10 @@ attr_accessor :phone, :name, :address, :description, :website
       self.create(hash)
     end
   end
+
+  # def self.first_five
+  #   @@all[1..5]
+  # end
 
 
 end

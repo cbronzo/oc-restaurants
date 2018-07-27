@@ -1,4 +1,4 @@
-class Scraper
+class OCRestaurants::Scraper
 
   def scrape_restaurants
     doc = Nokogiri::HTML(open("https://la.eater.com/maps/orange-county-restaurants-santa-ana-irvine-dana-point-newport-beach-costa-mesa"))
@@ -20,6 +20,6 @@ class Scraper
             array << oc_hash
           end
         end
-      Best_Restaurant.create_from_collection(array)
+      OCRestaurants::Best_Restaurant.create_from_collection(array)
   end
 end

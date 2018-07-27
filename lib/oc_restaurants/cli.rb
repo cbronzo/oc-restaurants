@@ -1,6 +1,6 @@
 #CLI Controller
 
-class CLI
+class OCRestaurants::CLI
   attr_accessor :name
 
   def initailize(name)
@@ -9,7 +9,7 @@ class CLI
 
   def start
     puts "Welcome to 'Orange County's 21 Hottest Restaurants' Guide! "
-    Scraper.new.scrape_restaurants
+    OCRestaurants::Scraper.new.scrape_restaurants
     menu
   end
 
@@ -34,7 +34,7 @@ class CLI
     puts "YUM! Here are 21 of the OC's best & hottest restaurants! Dig in!"
     puts "Please select a restaurant by entering its number (1-21) to learn more!"
     puts "To exit, type 'exit'."
-    Best_Restaurant.all.each.with_index(1) do |restaurant, index|
+    OCRestaurants::Best_Restaurant.all.with_index(1) do |restaurant, index|
       puts "#{index}. #{restaurant.name}"
     end
     input = gets.strip
@@ -53,7 +53,7 @@ class CLI
 
 
   def restaurant_attributes(index)
-    restaurant_info = Best_Restaurant.all[index]
+    restaurant_info = OCRestaurants::Best_Restaurant.all[index]
     puts "Below, you will find the details for #{restaurant_info.name}."
     puts "Description: #{restaurant_info.description}"
 
